@@ -24,9 +24,9 @@ pub mod error;
 pub mod rpc_api;
 
 use ac_node_api::EventDetails;
-use ac_primitives::Bytes;
 use alloc::{string::String, vec::Vec};
 use serde::{Deserialize, Serialize};
+use sp_core::Bytes;
 
 /// Extrinsic report returned upon a submit_and_watch request.
 /// Holds as much information as available.

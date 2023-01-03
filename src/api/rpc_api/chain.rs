@@ -16,10 +16,10 @@ use crate::{
 	rpc::{Request, Subscribe},
 };
 use ac_compose_macros::rpc_params;
-use ac_primitives::{ExtrinsicParams, FrameSystemConfig, SignedBlock};
+use ac_primitives::{ExtrinsicParams, FrameSystemConfig};
 use log::*;
 use serde::de::DeserializeOwned;
-use sp_runtime::traits::GetRuntimeBlockType;
+use sp_runtime::{generic::SignedBlock, traits::GetRuntimeBlockType};
 
 pub trait GetHeader<Hash> {
 	type Header;

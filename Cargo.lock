@@ -66,6 +66,7 @@ dependencies = [
  "sp-core",
  "sp-runtime",
  "sp-runtime-interface",
+ "sp-storage",
 ]
 
 [[package]]
@@ -89,6 +90,7 @@ dependencies = [
  "sp-runtime",
  "sp-staking",
  "sp-version",
+ "sp-weights",
 ]
 
 [[package]]
@@ -143,18 +145,6 @@ version = "0.7.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fcb51a0695d8f838b1ee009b3fbf66bda078cd64590202a864a8f3e8c4315c47"
 dependencies = [
- "getrandom 0.2.8",
- "once_cell",
- "version_check",
-]
-
-[[package]]
-name = "ahash"
-version = "0.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2c99f64d1e06488f620f932677e24bc6e2897582980441ae90a671415bd7ec2f"
-dependencies = [
- "cfg-if 1.0.0",
  "getrandom 0.2.8",
  "once_cell",
  "version_check",
@@ -389,18 +379,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "bounded-collections"
-version = "0.1.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "de2aff4807e40f478132150d80b031f2461d88f061851afcab537d7600c24120"
-dependencies = [
- "log",
- "parity-scale-codec",
- "scale-info",
- "serde",
-]
-
-[[package]]
 name = "build-helper"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -426,12 +404,6 @@ name = "byte-tools"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e3b5ca7a04898ad4bcd41c90c5285445ff5b791899bb1b0abdd2a2aa791211d7"
-
-[[package]]
-name = "bytemuck"
-version = "1.13.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c041d3eab048880cb0b86b256447da3f18859a163c3b8d8893f4e6368abe6393"
 
 [[package]]
 name = "byteorder"
@@ -475,16 +447,15 @@ dependencies = [
 
 [[package]]
 name = "cargo_metadata"
-version = "0.15.3"
+version = "0.14.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "08a1ec454bc3eead8719cb56e15dbbfecdbc14e4b3a3ae4936cc6e31f5fc0d07"
+checksum = "4acbb09d9ee8e23699b9634375c72795d095bf268439da88562cf9b501f181fa"
 dependencies = [
  "camino",
  "cargo-platform",
  "semver 1.0.16",
  "serde",
  "serde_json",
- "thiserror",
 ]
 
 [[package]]
@@ -605,9 +576,9 @@ dependencies = [
 
 [[package]]
 name = "cranelift-entity"
-version = "0.92.1"
+version = "0.88.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5a9e39cfc857e7e539aa623e03bb6bec11f54aef3dfdef41adcfa7b594af3b54"
+checksum = "87a0f1b2fdc18776956370cf8d9b009ded3f855350c480c1c52142510961f352"
 dependencies = [
  "serde",
 ]
@@ -750,17 +721,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "derive-syn-parse"
-version = "0.1.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e79116f119dd1dba1abf1f3405f03b9b0e79a27a3883864bfebded8a3dc768cd"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "derive_more"
 version = "0.99.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -875,7 +835,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7c24f403d068ad0b359e577a77f92392118be3f3c927538f2bb544a5ecd828c6"
 dependencies = [
  "curve25519-dalek 3.2.0",
- "hashbrown 0.12.3",
+ "hashbrown",
  "hex",
  "rand_core 0.6.4",
  "sha2 0.9.9",
@@ -1077,10 +1037,9 @@ dependencies = [
 [[package]]
 name = "frame-benchmarking"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support",
- "frame-support-procedural",
  "frame-system",
  "linregress",
  "log",
@@ -1096,28 +1055,12 @@ dependencies = [
  "sp-runtime-interface",
  "sp-std",
  "sp-storage",
- "static_assertions",
-]
-
-[[package]]
-name = "frame-benchmarking-pallet-pov"
-version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
-dependencies = [
- "frame-benchmarking",
- "frame-support",
- "frame-system",
- "parity-scale-codec",
- "scale-info",
- "sp-io",
- "sp-runtime",
- "sp-std",
 ]
 
 [[package]]
 name = "frame-election-provider-solution-type"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "proc-macro-crate",
  "proc-macro2",
@@ -1128,7 +1071,7 @@ dependencies = [
 [[package]]
 name = "frame-election-provider-support"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-election-provider-solution-type",
  "frame-support",
@@ -1145,7 +1088,7 @@ dependencies = [
 [[package]]
 name = "frame-executive"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -1184,7 +1127,7 @@ dependencies = [
 [[package]]
 name = "frame-support"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "bitflags",
  "frame-metadata 15.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1216,11 +1159,10 @@ dependencies = [
 [[package]]
 name = "frame-support-procedural"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "Inflector",
  "cfg-expr",
- "derive-syn-parse",
  "frame-support-procedural-tools",
  "itertools",
  "proc-macro2",
@@ -1231,7 +1173,7 @@ dependencies = [
 [[package]]
 name = "frame-support-procedural-tools"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support-procedural-tools-derive",
  "proc-macro-crate",
@@ -1243,7 +1185,7 @@ dependencies = [
 [[package]]
 name = "frame-support-procedural-tools-derive"
 version = "3.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1253,7 +1195,7 @@ dependencies = [
 [[package]]
 name = "frame-system"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support",
  "log",
@@ -1271,7 +1213,7 @@ dependencies = [
 [[package]]
 name = "frame-system-benchmarking"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -1286,7 +1228,7 @@ dependencies = [
 [[package]]
 name = "frame-system-rpc-runtime-api"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "parity-scale-codec",
  "sp-api",
@@ -1295,7 +1237,7 @@ dependencies = [
 [[package]]
 name = "frame-try-runtime"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support",
  "parity-scale-codec",
@@ -1532,14 +1474,8 @@ version = "0.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8a9ee70c43aaf417c914396645a0fa852624801b24ebb7ae78fe8272889ac888"
 dependencies = [
- "ahash 0.7.6",
+ "ahash",
 ]
-
-[[package]]
-name = "hashbrown"
-version = "0.13.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "43a3c133739dddd0d2990f9a4bdf8eb4b21ef50e4851ca85ab661199821d510e"
 
 [[package]]
 name = "heck"
@@ -1701,7 +1637,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1885e79c1fc4b10f0e172c475f458b7f7b93061064d98c3293e98c5ba0c8b399"
 dependencies = [
  "autocfg",
- "hashbrown 0.12.3",
+ "hashbrown",
  "serde",
 ]
 
@@ -1731,6 +1667,12 @@ dependencies = [
 
 [[package]]
 name = "io-lifetimes"
+version = "0.7.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "59ce5ef949d49ee85593fc4d3f3f95ad61657076395cbbce23e2121fc5542074"
+
+[[package]]
+name = "io-lifetimes"
 version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1abeb7a0dd0f8181267ff8adc397075586500b81b28a73e8a0208b00fc170fb3"
@@ -1755,8 +1697,8 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "22e18b0a45d56fe973d6db23972bf5bc46f988a4a2385deac9cc29572f09daef"
 dependencies = [
  "hermit-abi 0.3.1",
- "io-lifetimes",
- "rustix",
+ "io-lifetimes 1.0.5",
+ "rustix 0.36.8",
  "windows-sys 0.45.0",
 ]
 
@@ -1895,10 +1837,9 @@ dependencies = [
 [[package]]
 name = "kitchensink-runtime"
 version = "3.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
- "frame-benchmarking-pallet-pov",
  "frame-election-provider-support",
  "frame-executive",
  "frame-support",
@@ -1931,7 +1872,6 @@ dependencies = [
  "pallet-identity",
  "pallet-im-online",
  "pallet-indices",
- "pallet-insecure-randomness-collective-flip",
  "pallet-lottery",
  "pallet-membership",
  "pallet-message-queue",
@@ -1946,6 +1886,7 @@ dependencies = [
  "pallet-offences-benchmarking",
  "pallet-preimage",
  "pallet-proxy",
+ "pallet-randomness-collective-flip",
  "pallet-ranked-collective",
  "pallet-recovery",
  "pallet-referenda",
@@ -2072,12 +2013,19 @@ dependencies = [
 
 [[package]]
 name = "linregress"
-version = "0.5.1"
+version = "0.4.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "475015a7f8f017edb28d2e69813be23500ad4b32cfe3421c4148efc97324ee52"
+checksum = "d6c601a85f5ecd1aba625247bca0031585fb1c446461b142878a16f8245ddeb8"
 dependencies = [
  "nalgebra",
+ "statrs",
 ]
+
+[[package]]
+name = "linux-raw-sys"
+version = "0.0.46"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d4d2456c373231a208ad294c33dc5bff30051eafd954cd4caae83a712b12854d"
 
 [[package]]
 name = "linux-raw-sys"
@@ -2102,6 +2050,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "abb12e687cfb44aa40f41fc3978ef76448f9b6038cad6aef4259d3c095a2382e"
 dependencies = [
  "cfg-if 1.0.0",
+]
+
+[[package]]
+name = "lru"
+version = "0.8.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b6e8aaa3f231bb4bd57b84b2d5dc3ae7f350265df8aa96492e0bc394a1571909"
+dependencies = [
+ "hashbrown",
 ]
 
 [[package]]
@@ -2138,15 +2095,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2dffe52ecf27772e601905b7522cb4ef790d2cc203488bbd0e2fe85fcb74566d"
 
 [[package]]
-name = "memfd"
-version = "0.6.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b20a59d985586e4a5aef64564ac77299f8586d8be6cf9106a5a40207e8908efb"
-dependencies = [
- "rustix",
-]
-
-[[package]]
 name = "memoffset"
 version = "0.6.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2162,7 +2110,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5e0c7cba9ce19ac7ffd2053ac9f49843bbd3f4318feedfd74e85c19d5fb0ba66"
 dependencies = [
  "hash-db",
- "hashbrown 0.12.3",
+ "hashbrown",
 ]
 
 [[package]]
@@ -2249,9 +2197,9 @@ dependencies = [
 
 [[package]]
 name = "nalgebra"
-version = "0.32.1"
+version = "0.27.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f6515c882ebfddccaa73ead7320ca28036c4bc84c9bcca3cc0cbba8efe89223a"
+checksum = "462fffe4002f4f2e1f6a9dcf12cc1a6fc0e15989014efc02a941d3e0f5dc2120"
 dependencies = [
  "approx",
  "matrixmultiply",
@@ -2259,15 +2207,17 @@ dependencies = [
  "num-complex",
  "num-rational",
  "num-traits",
+ "rand 0.8.5",
+ "rand_distr",
  "simba",
  "typenum",
 ]
 
 [[package]]
 name = "nalgebra-macros"
-version = "0.2.0"
+version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d232c68884c0c99810a5a4d333ef7e47689cfd0edc85efc9e54e1e6bf5212766"
+checksum = "01fcc0b8149b4632adc89ac3b7b31a12fb6099a0317a4eb2ebff574ef7de7218"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2306,7 +2256,7 @@ dependencies = [
 [[package]]
 name = "node-primitives"
 version = "2.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-system",
  "parity-scale-codec",
@@ -2319,7 +2269,7 @@ dependencies = [
 [[package]]
 name = "node-template-runtime"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-executive",
@@ -2331,7 +2281,7 @@ dependencies = [
  "pallet-aura",
  "pallet-balances",
  "pallet-grandpa",
- "pallet-insecure-randomness-collective-flip",
+ "pallet-randomness-collective-flip",
  "pallet-sudo",
  "pallet-template",
  "pallet-timestamp",
@@ -2427,6 +2377,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "578ede34cf02f8924ab9447f50c28075b4d3e5b269972345e7e0372b38c6cdcd"
 dependencies = [
  "autocfg",
+ "libm",
 ]
 
 [[package]]
@@ -2446,7 +2397,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "21158b2c33aa6d4561f1c0a6ea283ca92bc54802a93b263e910746d679a7eb53"
 dependencies = [
  "crc32fast",
- "hashbrown 0.12.3",
+ "hashbrown",
  "indexmap",
  "memchr",
 ]
@@ -2526,7 +2477,7 @@ dependencies = [
 [[package]]
 name = "pallet-alliance"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2545,7 +2496,7 @@ dependencies = [
 [[package]]
 name = "pallet-asset-tx-payment"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2563,7 +2514,7 @@ dependencies = [
 [[package]]
 name = "pallet-assets"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2578,7 +2529,7 @@ dependencies = [
 [[package]]
 name = "pallet-aura"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -2594,7 +2545,7 @@ dependencies = [
 [[package]]
 name = "pallet-authority-discovery"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -2610,13 +2561,14 @@ dependencies = [
 [[package]]
 name = "pallet-authorship"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support",
  "frame-system",
  "impl-trait-for-tuples",
  "parity-scale-codec",
  "scale-info",
+ "sp-authorship",
  "sp-runtime",
  "sp-std",
 ]
@@ -2624,7 +2576,7 @@ dependencies = [
 [[package]]
 name = "pallet-babe"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2648,7 +2600,7 @@ dependencies = [
 [[package]]
 name = "pallet-bags-list"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-election-provider-support",
@@ -2668,7 +2620,7 @@ dependencies = [
 [[package]]
 name = "pallet-balances"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2683,7 +2635,7 @@ dependencies = [
 [[package]]
 name = "pallet-bounties"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2701,7 +2653,7 @@ dependencies = [
 [[package]]
 name = "pallet-child-bounties"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2720,7 +2672,7 @@ dependencies = [
 [[package]]
 name = "pallet-collective"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2737,7 +2689,7 @@ dependencies = [
 [[package]]
 name = "pallet-contracts"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "bitflags",
  "frame-benchmarking",
@@ -2765,11 +2717,10 @@ dependencies = [
 [[package]]
 name = "pallet-contracts-primitives"
 version = "7.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "bitflags",
  "parity-scale-codec",
- "scale-info",
  "sp-runtime",
  "sp-std",
  "sp-weights",
@@ -2778,7 +2729,7 @@ dependencies = [
 [[package]]
 name = "pallet-contracts-proc-macro"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2788,7 +2739,7 @@ dependencies = [
 [[package]]
 name = "pallet-conviction-voting"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "assert_matches",
  "frame-benchmarking",
@@ -2805,7 +2756,7 @@ dependencies = [
 [[package]]
 name = "pallet-democracy"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2823,7 +2774,7 @@ dependencies = [
 [[package]]
 name = "pallet-election-provider-multi-phase"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-election-provider-support",
@@ -2846,7 +2797,7 @@ dependencies = [
 [[package]]
 name = "pallet-election-provider-support-benchmarking"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-election-provider-support",
@@ -2859,7 +2810,7 @@ dependencies = [
 [[package]]
 name = "pallet-elections-phragmen"
 version = "5.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2877,7 +2828,7 @@ dependencies = [
 [[package]]
 name = "pallet-fast-unstake"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-election-provider-support",
@@ -2895,7 +2846,7 @@ dependencies = [
 [[package]]
 name = "pallet-grandpa"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2918,7 +2869,7 @@ dependencies = [
 [[package]]
 name = "pallet-identity"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "enumflags2",
  "frame-benchmarking",
@@ -2934,7 +2885,7 @@ dependencies = [
 [[package]]
 name = "pallet-im-online"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2954,7 +2905,7 @@ dependencies = [
 [[package]]
 name = "pallet-indices"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2969,23 +2920,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "pallet-insecure-randomness-collective-flip"
-version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
-dependencies = [
- "frame-support",
- "frame-system",
- "parity-scale-codec",
- "safe-mix",
- "scale-info",
- "sp-runtime",
- "sp-std",
-]
-
-[[package]]
 name = "pallet-lottery"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2999,7 +2936,7 @@ dependencies = [
 [[package]]
 name = "pallet-membership"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3016,7 +2953,7 @@ dependencies = [
 [[package]]
 name = "pallet-message-queue"
 version = "7.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3035,7 +2972,7 @@ dependencies = [
 [[package]]
 name = "pallet-mmr"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3052,7 +2989,7 @@ dependencies = [
 [[package]]
 name = "pallet-multisig"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3068,7 +3005,7 @@ dependencies = [
 [[package]]
 name = "pallet-nfts"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "enumflags2",
  "frame-benchmarking",
@@ -3077,7 +3014,6 @@ dependencies = [
  "log",
  "parity-scale-codec",
  "scale-info",
- "sp-core",
  "sp-runtime",
  "sp-std",
 ]
@@ -3085,7 +3021,7 @@ dependencies = [
 [[package]]
 name = "pallet-nis"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3101,7 +3037,7 @@ dependencies = [
 [[package]]
 name = "pallet-nomination-pools"
 version = "1.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -3118,7 +3054,7 @@ dependencies = [
 [[package]]
 name = "pallet-nomination-pools-benchmarking"
 version = "1.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-election-provider-support",
@@ -3138,7 +3074,7 @@ dependencies = [
 [[package]]
 name = "pallet-nomination-pools-runtime-api"
 version = "1.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "parity-scale-codec",
  "sp-api",
@@ -3148,7 +3084,7 @@ dependencies = [
 [[package]]
 name = "pallet-offences"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -3165,13 +3101,12 @@ dependencies = [
 [[package]]
 name = "pallet-offences-benchmarking"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-election-provider-support",
  "frame-support",
  "frame-system",
- "log",
  "pallet-babe",
  "pallet-balances",
  "pallet-grandpa",
@@ -3189,7 +3124,7 @@ dependencies = [
 [[package]]
 name = "pallet-preimage"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3206,7 +3141,7 @@ dependencies = [
 [[package]]
 name = "pallet-proxy"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3219,9 +3154,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-randomness-collective-flip"
+version = "4.0.0-dev"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "parity-scale-codec",
+ "safe-mix",
+ "scale-info",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
 name = "pallet-ranked-collective"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3239,7 +3188,7 @@ dependencies = [
 [[package]]
 name = "pallet-recovery"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3254,7 +3203,7 @@ dependencies = [
 [[package]]
 name = "pallet-referenda"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3272,7 +3221,7 @@ dependencies = [
 [[package]]
 name = "pallet-remark"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3289,7 +3238,7 @@ dependencies = [
 [[package]]
 name = "pallet-root-testing"
 version = "1.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -3304,7 +3253,7 @@ dependencies = [
 [[package]]
 name = "pallet-scheduler"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3321,7 +3270,7 @@ dependencies = [
 [[package]]
 name = "pallet-session"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -3342,7 +3291,7 @@ dependencies = [
 [[package]]
 name = "pallet-session-benchmarking"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3358,7 +3307,7 @@ dependencies = [
 [[package]]
 name = "pallet-society"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -3372,7 +3321,7 @@ dependencies = [
 [[package]]
 name = "pallet-staking"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-election-provider-support",
@@ -3394,7 +3343,7 @@ dependencies = [
 [[package]]
 name = "pallet-staking-reward-curve"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "proc-macro-crate",
  "proc-macro2",
@@ -3405,7 +3354,7 @@ dependencies = [
 [[package]]
 name = "pallet-state-trie-migration"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3422,7 +3371,7 @@ dependencies = [
 [[package]]
 name = "pallet-sudo"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -3436,7 +3385,7 @@ dependencies = [
 [[package]]
 name = "pallet-template"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3448,7 +3397,7 @@ dependencies = [
 [[package]]
 name = "pallet-timestamp"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3466,7 +3415,7 @@ dependencies = [
 [[package]]
 name = "pallet-tips"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3485,7 +3434,7 @@ dependencies = [
 [[package]]
 name = "pallet-transaction-payment"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -3501,7 +3450,7 @@ dependencies = [
 [[package]]
 name = "pallet-transaction-payment-rpc-runtime-api"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "pallet-transaction-payment",
  "parity-scale-codec",
@@ -3513,7 +3462,7 @@ dependencies = [
 [[package]]
 name = "pallet-transaction-storage"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3533,7 +3482,7 @@ dependencies = [
 [[package]]
 name = "pallet-treasury"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3550,7 +3499,7 @@ dependencies = [
 [[package]]
 name = "pallet-uniques"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3565,7 +3514,7 @@ dependencies = [
 [[package]]
 name = "pallet-utility"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3581,7 +3530,7 @@ dependencies = [
 [[package]]
 name = "pallet-vesting"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3596,7 +3545,7 @@ dependencies = [
 [[package]]
 name = "pallet-whitelist"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3873,6 +3822,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "rand_distr"
+version = "0.4.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "32cb0b9bc82b0a0876c2dd994a7e7a2683d3e7390ca40e6886785ef0c7e3ee31"
+dependencies = [
+ "num-traits",
+ "rand 0.8.5",
+]
+
+[[package]]
 name = "rand_hc"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4015,15 +3974,29 @@ dependencies = [
 
 [[package]]
 name = "rustix"
+version = "0.35.13"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "727a1a6d65f786ec22df8a81ca3121107f235970dc1705ed681d3e6e8b9cd5f9"
+dependencies = [
+ "bitflags",
+ "errno",
+ "io-lifetimes 0.7.5",
+ "libc",
+ "linux-raw-sys 0.0.46",
+ "windows-sys 0.42.0",
+]
+
+[[package]]
+name = "rustix"
 version = "0.36.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f43abb88211988493c1abb44a70efa56ff0ce98f233b7b276146f1f3f7ba9644"
 dependencies = [
  "bitflags",
  "errno",
- "io-lifetimes",
+ "io-lifetimes 1.0.5",
  "libc",
- "linux-raw-sys",
+ "linux-raw-sys 0.1.4",
  "windows-sys 0.45.0",
 ]
 
@@ -4082,15 +4055,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "safe_arch"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "794821e4ccb0d9f979512f9c1973480123f9bd62a90d74ab0f9426fcf8f4a529"
-dependencies = [
- "bytemuck",
-]
-
-[[package]]
 name = "same-file"
 version = "1.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4102,7 +4066,7 @@ dependencies = [
 [[package]]
 name = "sc-keystore"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "array-bytes",
  "async-trait",
@@ -4147,17 +4111,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "713cfb06c7059f3588fb8044c0fad1d09e3c01d225e25b9220dbfdcf16dbb1b3"
 dependencies = [
  "windows-sys 0.42.0",
-]
-
-[[package]]
-name = "schnellru"
-version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "772575a524feeb803e5b0fcbc6dd9f367e579488197c94c6e4023aad2305774d"
-dependencies = [
- "ahash 0.8.3",
- "cfg-if 1.0.0",
- "hashbrown 0.13.2",
 ]
 
 [[package]]
@@ -4431,15 +4384,14 @@ dependencies = [
 
 [[package]]
 name = "simba"
-version = "0.8.0"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "50582927ed6f77e4ac020c057f37a268fc6aebc29225050365aacbb9deeeddc4"
+checksum = "8e82063457853d00243beda9952e910b82593e4b07ae9f721b9278a99a0d3d5c"
 dependencies = [
  "approx",
  "num-complex",
  "num-traits",
  "paste",
- "wide",
 ]
 
 [[package]]
@@ -4485,7 +4437,7 @@ dependencies = [
 [[package]]
 name = "sp-api"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "hash-db",
  "log",
@@ -4503,7 +4455,7 @@ dependencies = [
 [[package]]
 name = "sp-api-proc-macro"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "blake2",
  "proc-macro-crate",
@@ -4515,7 +4467,7 @@ dependencies = [
 [[package]]
 name = "sp-application-crypto"
 version = "7.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
@@ -4528,7 +4480,7 @@ dependencies = [
 [[package]]
 name = "sp-arithmetic"
 version = "6.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "integer-sqrt",
  "num-traits",
@@ -4542,7 +4494,7 @@ dependencies = [
 [[package]]
 name = "sp-authority-discovery"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
@@ -4553,9 +4505,38 @@ dependencies = [
 ]
 
 [[package]]
+name = "sp-authorship"
+version = "4.0.0-dev"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
+dependencies = [
+ "async-trait",
+ "parity-scale-codec",
+ "sp-inherents",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
+name = "sp-beefy"
+version = "4.0.0-dev"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
+dependencies = [
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-api",
+ "sp-application-crypto",
+ "sp-core",
+ "sp-io",
+ "sp-mmr-primitives",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
 name = "sp-block-builder"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "parity-scale-codec",
  "sp-api",
@@ -4567,7 +4548,7 @@ dependencies = [
 [[package]]
 name = "sp-consensus"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "async-trait",
  "futures",
@@ -4585,7 +4566,7 @@ dependencies = [
 [[package]]
 name = "sp-consensus-aura"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "async-trait",
  "parity-scale-codec",
@@ -4603,7 +4584,7 @@ dependencies = [
 [[package]]
 name = "sp-consensus-babe"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "async-trait",
  "merlin",
@@ -4626,7 +4607,7 @@ dependencies = [
 [[package]]
 name = "sp-consensus-slots"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
@@ -4638,7 +4619,7 @@ dependencies = [
 [[package]]
 name = "sp-consensus-vrf"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
@@ -4651,13 +4632,12 @@ dependencies = [
 [[package]]
 name = "sp-core"
 version = "7.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "array-bytes",
  "base58",
  "bitflags",
  "blake2",
- "bounded-collections",
  "dyn-clonable",
  "ed25519-zebra",
  "futures",
@@ -4694,7 +4674,7 @@ dependencies = [
 [[package]]
 name = "sp-core-hashing"
 version = "5.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "blake2",
  "byteorder",
@@ -4708,7 +4688,7 @@ dependencies = [
 [[package]]
 name = "sp-core-hashing-proc-macro"
 version = "5.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -4719,7 +4699,7 @@ dependencies = [
 [[package]]
 name = "sp-debug-derive"
 version = "5.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -4729,7 +4709,7 @@ dependencies = [
 [[package]]
 name = "sp-externalities"
 version = "0.13.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "environmental",
  "parity-scale-codec",
@@ -4740,7 +4720,7 @@ dependencies = [
 [[package]]
 name = "sp-finality-grandpa"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "finality-grandpa",
  "log",
@@ -4758,12 +4738,11 @@ dependencies = [
 [[package]]
 name = "sp-inherents"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "async-trait",
  "impl-trait-for-tuples",
  "parity-scale-codec",
- "scale-info",
  "sp-core",
  "sp-runtime",
  "sp-std",
@@ -4773,7 +4752,7 @@ dependencies = [
 [[package]]
 name = "sp-io"
 version = "7.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "bytes 1.4.0",
  "ed25519",
@@ -4798,7 +4777,7 @@ dependencies = [
 [[package]]
 name = "sp-keyring"
 version = "7.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "lazy_static",
  "sp-core",
@@ -4809,7 +4788,7 @@ dependencies = [
 [[package]]
 name = "sp-keystore"
 version = "0.13.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "async-trait",
  "futures",
@@ -4820,13 +4799,14 @@ dependencies = [
  "serde",
  "sp-core",
  "sp-externalities",
+ "sp-std",
  "thiserror",
 ]
 
 [[package]]
 name = "sp-maybe-compressed-blob"
 version = "4.1.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "thiserror",
  "zstd",
@@ -4835,7 +4815,7 @@ dependencies = [
 [[package]]
 name = "sp-mmr-primitives"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "ckb-merkle-mountain-range",
  "log",
@@ -4853,7 +4833,7 @@ dependencies = [
 [[package]]
 name = "sp-npos-elections"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
@@ -4867,7 +4847,7 @@ dependencies = [
 [[package]]
 name = "sp-offchain"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "sp-api",
  "sp-core",
@@ -4877,7 +4857,7 @@ dependencies = [
 [[package]]
 name = "sp-panic-handler"
 version = "5.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "backtrace",
  "lazy_static",
@@ -4885,9 +4865,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "sp-rpc"
+version = "6.0.0"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
+dependencies = [
+ "rustc-hash",
+ "serde",
+ "sp-core",
+ "sp-std",
+]
+
+[[package]]
 name = "sp-runtime"
 version = "7.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "either",
  "hash256-std-hasher",
@@ -4909,7 +4900,7 @@ dependencies = [
 [[package]]
 name = "sp-runtime-interface"
 version = "7.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "bytes 1.4.0",
  "impl-trait-for-tuples",
@@ -4927,7 +4918,7 @@ dependencies = [
 [[package]]
 name = "sp-runtime-interface-proc-macro"
 version = "6.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "Inflector",
  "proc-macro-crate",
@@ -4937,9 +4928,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "sp-serializer"
+version = "4.0.0-dev"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
+dependencies = [
+ "serde",
+ "serde_json",
+ "sp-std",
+]
+
+[[package]]
 name = "sp-session"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
@@ -4953,7 +4954,7 @@ dependencies = [
 [[package]]
 name = "sp-staking"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
@@ -4965,7 +4966,7 @@ dependencies = [
 [[package]]
 name = "sp-state-machine"
 version = "0.13.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "hash-db",
  "log",
@@ -4985,12 +4986,12 @@ dependencies = [
 [[package]]
 name = "sp-std"
 version = "5.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 
 [[package]]
 name = "sp-storage"
 version = "7.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "impl-serde",
  "parity-scale-codec",
@@ -5001,9 +5002,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "sp-test-primitives"
+version = "2.0.0"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
+dependencies = [
+ "parity-scale-codec",
+ "serde",
+ "sp-application-crypto",
+ "sp-core",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
 name = "sp-timestamp"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "async-trait",
  "futures-timer",
@@ -5018,7 +5032,7 @@ dependencies = [
 [[package]]
 name = "sp-tracing"
 version = "6.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "parity-scale-codec",
  "sp-std",
@@ -5030,7 +5044,7 @@ dependencies = [
 [[package]]
 name = "sp-transaction-pool"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "sp-api",
  "sp-runtime",
@@ -5039,7 +5053,7 @@ dependencies = [
 [[package]]
 name = "sp-transaction-storage-proof"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "async-trait",
  "log",
@@ -5055,18 +5069,18 @@ dependencies = [
 [[package]]
 name = "sp-trie"
 version = "7.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
- "ahash 0.8.3",
+ "ahash",
  "hash-db",
- "hashbrown 0.12.3",
+ "hashbrown",
  "lazy_static",
+ "lru",
  "memory-db",
  "nohash-hasher",
  "parity-scale-codec",
  "parking_lot",
  "scale-info",
- "schnellru",
  "sp-core",
  "sp-std",
  "thiserror",
@@ -5078,7 +5092,7 @@ dependencies = [
 [[package]]
 name = "sp-version"
 version = "5.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "impl-serde",
  "parity-scale-codec",
@@ -5095,7 +5109,7 @@ dependencies = [
 [[package]]
 name = "sp-version-proc-macro"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "parity-scale-codec",
  "proc-macro2",
@@ -5106,9 +5120,8 @@ dependencies = [
 [[package]]
 name = "sp-wasm-interface"
 version = "7.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
- "anyhow",
  "impl-trait-for-tuples",
  "log",
  "parity-scale-codec",
@@ -5120,7 +5133,7 @@ dependencies = [
 [[package]]
 name = "sp-weights"
 version = "4.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
@@ -5182,6 +5195,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
 
 [[package]]
+name = "statrs"
+version = "0.15.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "05bdbb8e4e78216a85785a85d3ec3183144f98d0097b9281802c019bb07a6f05"
+dependencies = [
+ "approx",
+ "lazy_static",
+ "nalgebra",
+ "num-traits",
+ "rand 0.8.5",
+]
+
+[[package]]
 name = "strum"
 version = "0.24.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5223,8 +5249,11 @@ dependencies = [
  "serde",
  "serde_json",
  "sp-core",
+ "sp-rpc",
  "sp-runtime",
  "sp-runtime-interface",
+ "sp-storage",
+ "sp-version",
  "tungstenite",
  "url",
  "ws",
@@ -5262,7 +5291,7 @@ dependencies = [
 [[package]]
 name = "substrate-wasm-builder"
 version = "5.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=master#10bf4bd0d9ed75c62bf9e094759fa9315e1c2017"
+source = "git+https://github.com/haerdib/substrate.git?branch=add-serde-feature-to-primitives#7c28e6038df7869d342923cbf70623b83471a9f6"
 dependencies = [
  "ansi_term",
  "build-helper",
@@ -5347,7 +5376,25 @@ dependencies = [
  "ac-compose-macros",
  "ac-node-api",
  "libc",
+ "sp-application-crypto",
+ "sp-arithmetic",
+ "sp-beefy",
+ "sp-consensus-babe",
+ "sp-consensus-slots",
+ "sp-core",
+ "sp-finality-grandpa",
  "sp-io",
+ "sp-keystore",
+ "sp-mmr-primitives",
+ "sp-npos-elections",
+ "sp-rpc",
+ "sp-runtime",
+ "sp-runtime-interface",
+ "sp-serializer",
+ "sp-storage",
+ "sp-test-primitives",
+ "sp-version",
+ "sp-weights",
  "substrate-api-client",
 ]
 
@@ -5576,7 +5623,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "004e1e8f92535694b4cb1444dc5a8073ecf0815e3357f729638b9f8fc4062908"
 dependencies = [
  "hash-db",
- "hashbrown 0.12.3",
+ "hashbrown",
  "log",
  "rustc-hex",
  "smallvec",
@@ -5623,9 +5670,9 @@ version = "1.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "97fee6b57c6a41524a810daee9286c02d7752c4253064d0b05472833a438f675"
 dependencies = [
- "cfg-if 0.1.10",
+ "cfg-if 1.0.0",
  "digest 0.10.6",
- "rand 0.7.3",
+ "rand 0.8.5",
  "static_assertions",
 ]
 
@@ -5838,9 +5885,9 @@ dependencies = [
 
 [[package]]
 name = "wasm-opt"
-version = "0.111.0"
+version = "0.110.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "84a303793cbc01fb96551badfc7367db6007396bba6bac97936b3c8b6f7fdb41"
+checksum = "b68e8037b4daf711393f4be2056246d12d975651b14d581520ad5d1f19219cec"
 dependencies = [
  "anyhow",
  "libc",
@@ -5854,9 +5901,9 @@ dependencies = [
 
 [[package]]
 name = "wasm-opt-cxx-sys"
-version = "0.111.0"
+version = "0.110.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d9c9deb56f8a9f2ec177b3bd642a8205621835944ed5da55f2388ef216aca5a4"
+checksum = "91adbad477e97bba3fbd21dd7bfb594e7ad5ceb9169ab1c93ab9cb0ada636b6f"
 dependencies = [
  "anyhow",
  "cxx",
@@ -5866,9 +5913,9 @@ dependencies = [
 
 [[package]]
 name = "wasm-opt-sys"
-version = "0.111.0"
+version = "0.110.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4432e28b542738a9776cedf92e8a99d8991c7b4667ee2c7ccddfb479dd2856a7"
+checksum = "ec4fa5a322a4e6ac22fd141f498d56afbdbf9df5debeac32380d2dcaa3e06941"
 dependencies = [
  "anyhow",
  "cc",
@@ -5941,12 +5988,11 @@ dependencies = [
 
 [[package]]
 name = "wasmparser"
-version = "0.96.0"
+version = "0.89.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "adde01ade41ab9a5d10ec8ed0bb954238cf8625b5cd5a13093d6de2ad9c2be1a"
+checksum = "ab5d3e08b13876f96dd55608d03cd4883a0545884932d5adf11925876c96daef"
 dependencies = [
  "indexmap",
- "url",
 ]
 
 [[package]]
@@ -5960,9 +6006,9 @@ dependencies = [
 
 [[package]]
 name = "wasmtime"
-version = "5.0.1"
+version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "49ffcc607adc9da024e87ca814592d4bc67f5c5b58e488f5608d5734a1ebc23e"
+checksum = "4ad5af6ba38311282f2a21670d96e78266e8c8e2f38cbcd52c254df6ccbc7731"
 dependencies = [
  "anyhow",
  "bincode",
@@ -5980,23 +6026,23 @@ dependencies = [
  "wasmtime-environ",
  "wasmtime-jit",
  "wasmtime-runtime",
- "windows-sys 0.42.0",
+ "windows-sys 0.36.1",
 ]
 
 [[package]]
 name = "wasmtime-asm-macros"
-version = "5.0.1"
+version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "12cb5dc4d79cd7b2453c395f64e9013d2ad90bd083be556d5565cb224ebe8d57"
+checksum = "45de63ddfc8b9223d1adc8f7b2ee5f35d1f6d112833934ad7ea66e4f4339e597"
 dependencies = [
  "cfg-if 1.0.0",
 ]
 
 [[package]]
 name = "wasmtime-environ"
-version = "5.0.1"
+version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9350c919553cddf14f78f9452119c8004d7ef6bfebb79a41a21819ed0c5604d8"
+checksum = "ebb881c61f4f627b5d45c54e629724974f8a8890d455bcbe634330cc27309644"
 dependencies = [
  "anyhow",
  "cranelift-entity",
@@ -6013,9 +6059,9 @@ dependencies = [
 
 [[package]]
 name = "wasmtime-jit"
-version = "5.0.1"
+version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "90ba5779ea786386432b94c9fc9ad5597346c319e8239db0d98d5be5cc109a7e"
+checksum = "1985c628011fe26adf5e23a5301bdc79b245e0e338f14bb58b39e4e25e4d8681"
 dependencies = [
  "addr2line 0.17.0",
  "anyhow",
@@ -6026,39 +6072,29 @@ dependencies = [
  "log",
  "object 0.29.0",
  "rustc-demangle",
+ "rustix 0.35.13",
  "serde",
  "target-lexicon",
+ "thiserror",
  "wasmtime-environ",
- "wasmtime-jit-icache-coherence",
  "wasmtime-runtime",
- "windows-sys 0.42.0",
+ "windows-sys 0.36.1",
 ]
 
 [[package]]
 name = "wasmtime-jit-debug"
-version = "5.0.1"
+version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f9841a44c82c74101c10ad4f215392761a2523b3c6c838597962bdb6de75fdb3"
+checksum = "f671b588486f5ccec8c5a3dba6b4c07eac2e66ab8c60e6f4e53717c77f709731"
 dependencies = [
  "once_cell",
 ]
 
 [[package]]
-name = "wasmtime-jit-icache-coherence"
-version = "5.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fd4356c2493002da3b111d470c2ecea65a3017009afce8adc46eaa5758739891"
-dependencies = [
- "cfg-if 1.0.0",
- "libc",
- "windows-sys 0.42.0",
-]
-
-[[package]]
 name = "wasmtime-runtime"
-version = "5.0.1"
+version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dd26efea7a790fcf430e663ba2519f0ab6eb8980adf8b0c58c62b727da77c2ec"
+checksum = "ee8f92ad4b61736339c29361da85769ebc200f184361959d1792832e592a1afd"
 dependencies = [
  "anyhow",
  "cc",
@@ -6067,22 +6103,22 @@ dependencies = [
  "libc",
  "log",
  "mach",
- "memfd",
  "memoffset",
  "paste",
  "rand 0.8.5",
- "rustix",
+ "rustix 0.35.13",
+ "thiserror",
  "wasmtime-asm-macros",
  "wasmtime-environ",
  "wasmtime-jit-debug",
- "windows-sys 0.42.0",
+ "windows-sys 0.36.1",
 ]
 
 [[package]]
 name = "wasmtime-types"
-version = "5.0.1"
+version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "86e1e4f66a2b9a114f9def450ab9971828c968db6ea6fccd613724b771fa4913"
+checksum = "d23d61cb4c46e837b431196dd06abb11731541021916d03476a178b54dc07aeb"
 dependencies = [
  "cranelift-entity",
  "serde",
@@ -6117,16 +6153,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b6c71e40d7d2c34a5106301fb632274ca37242cd0c9d3e64dbece371a40a2d87"
 dependencies = [
  "webpki",
-]
-
-[[package]]
-name = "wide"
-version = "0.7.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "feff0a412894d67223777b6cc8d68c0dab06d52d95e9890d5f2d47f10dd9366c"
-dependencies = [
- "bytemuck",
- "safe_arch",
 ]
 
 [[package]]
@@ -6174,17 +6200,30 @@ checksum = "712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f"
 
 [[package]]
 name = "windows-sys"
+version = "0.36.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ea04155a16a59f9eab786fe12a4a450e75cdb175f9e0d80da1e17db09f55b8d2"
+dependencies = [
+ "windows_aarch64_msvc 0.36.1",
+ "windows_i686_gnu 0.36.1",
+ "windows_i686_msvc 0.36.1",
+ "windows_x86_64_gnu 0.36.1",
+ "windows_x86_64_msvc 0.36.1",
+]
+
+[[package]]
+name = "windows-sys"
 version = "0.42.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5a3e1820f08b8513f676f7ab6c1f99ff312fb97b553d30ff4dd86f9f15728aa7"
 dependencies = [
  "windows_aarch64_gnullvm",
- "windows_aarch64_msvc",
- "windows_i686_gnu",
- "windows_i686_msvc",
- "windows_x86_64_gnu",
+ "windows_aarch64_msvc 0.42.1",
+ "windows_i686_gnu 0.42.1",
+ "windows_i686_msvc 0.42.1",
+ "windows_x86_64_gnu 0.42.1",
  "windows_x86_64_gnullvm",
- "windows_x86_64_msvc",
+ "windows_x86_64_msvc 0.42.1",
 ]
 
 [[package]]
@@ -6203,12 +6242,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8e2522491fbfcd58cc84d47aeb2958948c4b8982e9a2d8a2a35bbaed431390e7"
 dependencies = [
  "windows_aarch64_gnullvm",
- "windows_aarch64_msvc",
- "windows_i686_gnu",
- "windows_i686_msvc",
- "windows_x86_64_gnu",
+ "windows_aarch64_msvc 0.42.1",
+ "windows_i686_gnu 0.42.1",
+ "windows_i686_msvc 0.42.1",
+ "windows_x86_64_gnu 0.42.1",
  "windows_x86_64_gnullvm",
- "windows_x86_64_msvc",
+ "windows_x86_64_msvc 0.42.1",
 ]
 
 [[package]]
@@ -6219,9 +6258,21 @@ checksum = "8c9864e83243fdec7fc9c5444389dcbbfd258f745e7853198f365e3c4968a608"
 
 [[package]]
 name = "windows_aarch64_msvc"
+version = "0.36.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9bb8c3fd39ade2d67e9874ac4f3db21f0d710bee00fe7cab16949ec184eeaa47"
+
+[[package]]
+name = "windows_aarch64_msvc"
 version = "0.42.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4c8b1b673ffc16c47a9ff48570a9d85e25d265735c503681332589af6253c6c7"
+
+[[package]]
+name = "windows_i686_gnu"
+version = "0.36.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "180e6ccf01daf4c426b846dfc66db1fc518f074baa793aa7d9b9aaeffad6a3b6"
 
 [[package]]
 name = "windows_i686_gnu"
@@ -6231,9 +6282,21 @@ checksum = "de3887528ad530ba7bdbb1faa8275ec7a1155a45ffa57c37993960277145d640"
 
 [[package]]
 name = "windows_i686_msvc"
+version = "0.36.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e2e7917148b2812d1eeafaeb22a97e4813dfa60a3f8f78ebe204bcc88f12f024"
+
+[[package]]
+name = "windows_i686_msvc"
 version = "0.42.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bf4d1122317eddd6ff351aa852118a2418ad4214e6613a50e0191f7004372605"
+
+[[package]]
+name = "windows_x86_64_gnu"
+version = "0.36.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4dcd171b8776c41b97521e5da127a2d86ad280114807d0b2ab1e462bc764d9e1"
 
 [[package]]
 name = "windows_x86_64_gnu"
@@ -6246,6 +6309,12 @@ name = "windows_x86_64_gnullvm"
 version = "0.42.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "628bfdf232daa22b0d64fdb62b09fcc36bb01f05a3939e20ab73aaf9470d0463"
+
+[[package]]
+name = "windows_x86_64_msvc"
+version = "0.36.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c811ca4a8c853ef420abd8592ba53ddbbac90410fab6903b3e79972a631f7680"
 
 [[package]]
 name = "windows_x86_64_msvc"
